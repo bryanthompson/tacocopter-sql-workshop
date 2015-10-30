@@ -1,0 +1,32 @@
+<!-- quick and dirty -->
+<style>
+  ul { list-style-type: none; }
+</style>
+
+<%= form_tag(:action => :search) do %>
+
+  <h2>Select Tacos to find</h2>
+  <ul>
+    <% @tacos.each do |taco| %>
+      <li>
+        <label>
+          <input type="checkbox" name="selected_taco_ids[]" value="<%= taco.id %>"/><%= taco.name %>
+        </label>
+      </li>
+    <% end %>
+  </ul>
+
+  <h2>Select Sauces to find</h2>
+  <ul>
+    <% @salsas.each do |salsa| %>
+      <li>
+        <label>
+          <input type="checkbox" name="selected_salsa_ids[]" value="<%= salsa.id %>"/><%= salsa.name %>
+        </label>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= submit_tag("Find Tacos") %>
+
+<% end %>

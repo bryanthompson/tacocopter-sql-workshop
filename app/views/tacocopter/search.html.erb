@@ -1,0 +1,22 @@
+<h2>Stores matching your selections:</h2>
+
+<table border="1">
+  <tr>
+    <th>Store</th>
+    <th>City</th>
+  </tr>
+  <% @stores.each do |store| %>
+    <tr>
+      <td>
+        <%= store.city.name %>
+      </td>
+      <td>
+        <%= store.name %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<% if @stores.empty? %>
+  <strong>Sorry, no stores matched your selection.</strong>
+<% end %>
